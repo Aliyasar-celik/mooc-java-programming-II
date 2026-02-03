@@ -10,6 +10,11 @@ public class Person {
         this.address = address;
     }
 
+    @Override
+    public String toString() {
+        return this.name + "\n  " + this.address;
+    }
+
 
         
 }
