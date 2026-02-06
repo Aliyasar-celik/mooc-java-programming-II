@@ -1,0 +1,62 @@
+public class Item {
+    private String product;
+    private int qty;
+    private int unitPrice;
+
+    public Item(String product, int qty, int unitPrice) {
+        this.product = product;
+        this.qty = qty;
+        this.unitPrice = unitPrice;
+
+    }
+
+    public int price() {
+
+        return this.unitPrice*this.qty;
+    }
+
+    public int quantity(){
+        return this.qty;
+    }
+
+    public void increaseQuantity() {
+
+        this.qty += 1;
+
+    }
+
+    public String toString(){
+
+        return this.product + ": " + qty;
+    }
+
+    @Override
+    public int hashCode() {
+        final int prime = 31;
+        int result = 1;
+        result = prime * result + ((product == null) ? 0 : product.hashCode());
+        result = prime * result + unitPrice;
+        return result;
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj)
+            return true;
+        if (obj == null)
+            return false;
+        if (getClass() != obj.getClass())
+            return false;
+        Item other = (Item) obj;
+        if (product == null) {
+            if (other.product != null)
+                return false;
+        } else if (!product.equals(other.product))
+            return false;
+        if (unitPrice != other.unitPrice)
+            return false;
+        return true;
+    }
+
+    
+}
