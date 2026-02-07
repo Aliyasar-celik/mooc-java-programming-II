@@ -1,0 +1,32 @@
+
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Scanner;
+
+public class AverageOfNumbers {
+
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        List<String> inputs = new ArrayList<>();
+
+        // reading inputs
+        while (true) {
+            String row = scanner.nextLine();
+            if (row.equals("end")) {
+                break;
+            }
+
+            inputs.add(row);
+        }
+
+        // working out the average
+        double average = inputs.stream()
+                .mapToInt(s -> Integer.valueOf(s))
+                .average()
+                .getAsDouble();
+
+        // printing out the statistics
+        System.out.println("Average of the numbers: " + average);
+
+    }
+}
